@@ -1,0 +1,27 @@
+body{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+ .first{
+    padding-top: 10px;
+    padding-right: 7px;
+    color: rgb(128, 128, 128);
+    text-shadow: 0.5px 0.5px 0.5px white; /* Adjust values as needed */
+
+}
+.second {
+    color: black;
+    font-family: "Poppins", sans-serif;    
+    font-size: 50px;
+    padding-bottom: 430px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adjust values as needed */
+}
+i{
+    padding-left: 10px;
+}
+b{
+    font-size: 50px;
+    padding-bottom: 200px;
+    padding-right: 110px;
+    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.7); /* Adjust values as needed */
+}
+

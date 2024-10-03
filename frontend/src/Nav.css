@@ -1,0 +1,101 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding:  15px 10px 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.644) 0px 5px 15px;  }
+  
+  .brand {
+      font-size: 25px; /* Large font size */
+      font-weight: bold; /* Bold text */
+      text-transform: uppercase; /* Uppercase letters */
+      background: linear-gradient(90deg, #ffb700, #ffcc00, #ff5c00); /* Golden gradient */
+      -webkit-background-clip: text; /* Clip background to text */
+      -webkit-text-fill-color: transparent; /* Fill text with background */
+      text-shadow: 
+          0 0 15px rgba(255, 204, 0, 0.9), 
+          0 0 30px rgba(255, 204, 0, 0.7), 
+          0 0 45px rgba(255, 204, 0, 0.5); /* Enhanced glow effect */
+      letter-spacing: 4px; /* Spacing between letters */
+      font-family: "Poppins", sans-serif; /* Modern sans-serif font */
+      position: relative; /* Enable positioning for the underline effect */
+      text-align: center; /* Center the text */
+      margin-bottom: 8px;
+      animation: glow 2.5s infinite alternate; /* Animation effects */
+      
+
+    }
+@keyframes glow {
+  0% {
+      text-shadow: 0 0 5px rgba(255, 204, 0, 0.8), 0 0 10px rgba(255, 204, 0, 0.5);
+  }
+  100% {
+      text-shadow: 0 0 15px rgba(255, 204, 0, 1), 0 0 20px rgba(255, 204, 0, 0.7);
+  }
+}
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding-right: 300px;
+    text-align: center;
+    padding-top: 5px;
+  }
+  
+  .nav-links li {
+    margin: 0;
+  }
+  
+  .nav-links a {
+    text-align: center;
+    text-decoration: none;
+    color:white;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+.nav-links li i{
+    padding: 5px;
+  }
+.nav-links i{
+  font-size: 14px;
+}
+  
+.nav-links a:hover {
+    color: #007bff;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box input {
+    height: 30px;
+    padding: 0.5rem;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    justify-content: center;
+  }
+  
+  .search-box button {
+    margin-bottom: 15px;
+    height: 30px;
+    padding: 5px 5px 5px 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .search-box button:hover {
+    background-color: #0056b3;
+  }
+
+  
+  
