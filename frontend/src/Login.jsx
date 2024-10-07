@@ -33,8 +33,9 @@ function Login() {
         if (!newErrors.email.required && !newErrors.password.required) {
             try {
                 const response = await axios.post('http://localhost:5000/login', formData);
-                localStorage.setItem('token', response.data.token); // Store token for future requests
-                navigate('/');
+                localStorage.setItem('token', response.data.token); // Store token
+                localStorage.setItem('userEmail', formData.email); // Store user email
+                navigate('/'); // Redirect to home page
             } catch (error) {
                 setErrors({ ...newErrors, custom_error: 'Invalid email or password' });
             }
@@ -43,29 +44,29 @@ function Login() {
 
     return (
         <div className='container-first'>
-        <div className="container">
-            <div className="text">User Login</div>
-            <form onSubmit={onSubmit}>
-                <div className="data">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" onChange={handleChange} />
-                    {errors.email.required && <span className='text-danger'>Email is required</span>}
-                </div>
-                <div className="data">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" onChange={handleChange} />
-                    {errors.password.required && <span className='text-danger'>Password is required</span>}
-                </div>
-                {errors.custom_error && <span className='text-danger'>{errors.custom_error}</span>}
-                <div className="btn">
-                    <button navigate = "/" type="submit">Login</button>
-                </div>
-                <div className="signup-link">
-                    Not a member? <Link to="/register">Register here</Link>
-                </div>
-            </form>
+            <div className="container">
+                <div className="text">User Login</div>
+                <form onSubmit={onSubmit}>
+                    <div className="data">
+                        <label htmlFor="email">Email</label>
+                        <input type="email" name="email" id="email" onChange={handleChange} />
+                        {errors.email.required && <span className='text-danger'>Email is required</span>}
+                    </div>
+                    <div className="data">
+                        <label htmlFor="password">Password</label>
+                        <input type="password" name="password" id="password" onChange={handleChange} />
+                        {errors.password.required && <span className='text-danger'>Password is required</span>}
+                    </div>
+                    {errors.custom_error && <span className='text-danger'>{errors.custom_error}</span>}
+                    <div className="btn">
+                        <button type="submit">Login</button>
+                    </div>
+                    <div className="signup-link">
+                        Not a member? <Link to="/register">Register here</Link>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
     );
 }
 

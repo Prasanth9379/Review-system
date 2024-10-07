@@ -3,6 +3,7 @@ margin: 0;
 padding: 0;
 outline: none;
 
+
 }
 .product-list {
 background:#ccc;
@@ -56,3 +57,31 @@ background: linear-gradient(27deg, rgba(3,2,0,1) 0%, rgba(193,129,25,1) 60%); */
     color: black;
 
 }
+.product-list input{
+    margin-left: 68rem;
+    height: 30px;
+    padding: 0.5rem;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+ 
+}
+
+.product-list button {
+    /* margin-bottom: 15px; */
+    height: 30px;
+    padding: 2px 2px 2px 2px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    margin-left: 0.4rem;
+    cursor: pointer;
+  }
+.product-list i{
+    padding: 6px;
+}
+.product-list button:hover {
+    background-color: #0056b3;
+  }

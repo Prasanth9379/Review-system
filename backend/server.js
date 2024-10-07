@@ -1,24 +1,23 @@
 const express = require('express');
 const mssql = require('mssql');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-var config = {
-    "user": "node", // Database username
-    "password": "root", // Database password
-    "server": "localhost", // Server IP address
-    "database": "student", // Database name
-    "options": {
-        "encrypt": false // Disable encryption
+const config = {
+    user: "node", // Database username
+    password: "root", // Database password
+    server: "localhost", // Server IP address
+    database: "student", // Database name
+    options: {
+        encrypt: false // Disable encryption
     }
-}
-
+};
 
 // Connect to the database
 mssql.connect(config, err => {
@@ -32,7 +31,6 @@ mssql.connect(config, err => {
 // Registration endpoint
 app.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
-
     const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
@@ -61,30 +59,61 @@ app.post('/login', async (req, res) => {
         res.status(400).send('Error logging in: ' + err.message);
     }
 });
-//Fetching product detail from the database
 
+// Fetch all products
 app.get('/product', async (req, res) => {
     try {
         const result = await mssql.query`SELECT * FROM Products`; // Assuming 'Products' table exists
-        console.log('Products fetched:', result.recordset); // Log the result
-        res.json(result.recordset); // Send product data as JSON
+        res.json(result.recordset);
     } catch (err) {
         console.error('Error retrieving products:', err);
         res.status(500).send('Error retrieving product data');
     }
 });
 
-// Example: Insert product into the database with relative image path
-// app.post('/add-product', async (req, res) => {
-//     const { name, description, price, imageUrl } = req.body;
+// Fetch product details by ID
+app.get('/product/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await mssql.query`SELECT * FROM Products WHERE id = ${id}`;
+        if (result.recordset.length === 0) {
+            return res.status(404).send('Product not found');
+        }
+        res.json(result.recordset[0]);
+    } catch (err) {
+        console.error('Error retrieving product:', err);
+        res.status(500).send('Error retrieving product data');
+    }
+});
 
-//     try {
-//         await mssql.query`INSERT INTO Products (name, description, price, imageUrl) VALUES (${name}, ${description}, ${price}, ${imageUrl})`;
-//         res.status(201).send('Product added successfully');
-//     } catch (err) {
-//         res.status(400).send('Error adding product: ' + err.message);
-//     }
-// });
+// Fetch reviews for a product
+app.get('/reviews/:productId', async (req, res) => {
+    const { productId } = req.params;
+    try {
+        const result = await mssql.query`SELECT * FROM Reviews WHERE productId = ${productId}`;
+        res.json(result.recordset);
+    } catch (err) {
+        console.error('Error retrieving reviews:', err);
+        res.status(500).send('Error retrieving reviews');
+    }
+});
+
+app.post('/reviews', async (req, res) => {
+    console.log(req.body); // Log incoming data
+    const { productId, review } = req.body;
+
+    if (!productId || !review) {
+        return res.status(400).send('productId and review are required');
+    }
+
+    try {
+        const result = await mssql.query`INSERT INTO Reviews (productId, review) VALUES (${productId}, ${review})`;
+        res.status(201).send('Review submitted successfully');
+    } catch (err) {
+        console.error('Error submitting review:', err.message); // Log the error message
+        res.status(500).send('Error submitting review: ' + err.message);
+    }
+});
 
 
 // Start the server
