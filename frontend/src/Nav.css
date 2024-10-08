@@ -5,7 +5,8 @@
     align-items: center;
     background-color: black;
     padding:  15px 10px 10px 10px;
-    box-shadow: rgba(0, 0, 0, 0.644) 0px 5px 15px;  }
+    box-shadow: rgba(0, 0, 0, 0.644) 0px 5px 15px;  
+}
   
   .brand {
     margin-left: 20px;
@@ -41,7 +42,7 @@
     list-style: none;
     display: flex;
     gap: 2rem;
-    padding-right: 400px;
+    padding-right: 480px;
     text-align: center;
     padding-top: 5px;
   }

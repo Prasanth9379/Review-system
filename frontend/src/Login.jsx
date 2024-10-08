@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Login() {
+
     const navigate = useNavigate();
     const [errors, setErrors] = useState({
         email: { required: false },
@@ -35,6 +36,7 @@ function Login() {
                 const response = await axios.post('http://localhost:5000/login', formData);
                 localStorage.setItem('token', response.data.token); // Store token
                 localStorage.setItem('userEmail', formData.email); // Store user email
+                localStorage.setItem('userId', response.data.id);
                 navigate('/'); // Redirect to home page
             } catch (error) {
                 setErrors({ ...newErrors, custom_error: 'Invalid email or password' });

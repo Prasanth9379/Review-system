@@ -26,6 +26,7 @@ const Product = () => {
 
     return (
         <div className="product-list">
+            <Link to ="/"><i className="fa-solid fa-house"></i> </Link>
             <h2>PRODUCTS</h2>
             <div className="products">
                 {products.map((product) => (
@@ -38,7 +39,7 @@ const Product = () => {
                         <div className="product-info">
                             <h3>{product.name}</h3>
                             <p>{product.description}</p>
-                            <p><strong>Price: Rs.</strong> {product.price.toFixed(2)}</p>
+                            <p><strong>Price: </strong>Rs. {product.price.toFixed(2)}</p>
                             <Link to={`/product/${product.id}`}>View details</Link>
 
                             </div>

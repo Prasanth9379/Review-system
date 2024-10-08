@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
     const { id } = useParams();
+    const userId = localStorage.getItem('userId');
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [review, setReview] = useState('');
@@ -30,11 +31,15 @@ const ProductDetail = () => {
         try {
             const response = await axios.get(`http://localhost:5000/reviews/${productId}`);
             setReviews(response.data);
+
+            console.log(response.data);
         } catch (error) {
             console.error('Error fetching reviews:', error);
         }
     };
-
+    const handleClick = () => {
+        alert('Purchased successfully!');
+      };
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!review.trim()) {
@@ -42,7 +47,7 @@ const ProductDetail = () => {
             return;
         }
         try {
-            await axios.post('http://localhost:5000/reviews', { productId: product.id, review });
+            await axios.post('http://localhost:5000/reviews', { productId: product.id, review,userId });
             setReview('');
             if (product) {
                 fetchReviews(product.id); // Refresh reviews after submitting
@@ -61,37 +66,56 @@ const ProductDetail = () => {
         return <div>Product not found</div>;
     }
     return (
+        <div className='pro'>
+          <Link to = '/product'><i className="fa-solid fa-arrow-left"></i></Link>
         <div className="product-detail">
             <h2>{product.name}</h2>
             <img src={`/${product.imageUrl}`} alt={product.name} className="product-image" />
-            <p><strong>Description:</strong> {product.description}</p>
-            <p><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+            <p><strong>Description: </strong> {product.description}</p>
+            <p><strong>Price: </strong> Rs.{product.price.toFixed(2)}</p>
+            <button type="button" onClick={handleClick} className="btnff">Buy now</button>
+            <h3 className='proh'>Reviews</h3>
 
-            <h3>Given reviews</h3>
+
             <div className="reviews">
                 {reviews.length > 0 ? (
                     reviews.map((rev, index) => (
                         <div key={index} className="review">
-                            <p>{rev.review}</p>
+                            <p><strong>{rev.username}:</strong> {rev.review}</p>
                         </div>
                     ))
                 ) : (
                     <p>No reviews yet.</p>
                 )}
             </div>
+
+            {/* <div className="reviews">
+                {reviews.length > 0 ? (
+                    reviews.map((rev, index) => (
+                        <div key={index} className="review">
+                            <p>{rev.username}</p>
+                            <p>{rev.review}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>No reviews yet.</p>
+                )}
+            </div> */}
             {localStorage.getItem('userEmail') ? (
             <form onSubmit={handleSubmit}>
                 <textarea
+                className='txt'
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
                     placeholder="Write your review..."
                     required
                 />
-                <button type="submit">Submit Review</button>
+                <button className='txtbtn'type="submit">Submit</button>
             </form>
             ) : (
-            <div>Please login to submit a review.</div>
+            <div className='finaltxt'>Please login to submit a review.</div>
             )}
+        </div>
         </div>
     );
 };

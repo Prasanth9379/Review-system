@@ -15,7 +15,7 @@ function Navbar() {
 
     return (
         <nav className='navbar'>
-            <h3 className='brand'>flash</h3>
+            <h3 className='brand'>UT-MART</h3>
             <ul className='nav-links'>
                 <li><Link to="/"><i className="fa-solid fa-house"></i> Home</Link></li>
                 <li><Link to="/product"><i className="fa-solid fa-list"></i> Product</Link></li>
