@@ -11,7 +11,9 @@
     max-width: 1200px;
     margin: 0 auto;
   }
-  
+  .footer-contact p:hover{
+    color: #007bff;
+  }
   .footer-links {
     list-style: none;
     padding: 0;
@@ -39,5 +41,8 @@
   }
   .lastline{
     padding-right: 370px;
+  }
+  .lastline i:hover{
+    color: #007bff;
   }
   

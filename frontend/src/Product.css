@@ -11,8 +11,8 @@ background: linear-gradient(27deg, rgba(3,2,0,1) 0%, rgba(193,129,25,1) 60%); */
 }
 .product-list i{
     color:rgba(0, 0, 0, 0.507);
-    font-size: 25px;
-    margin-left: 20px;
+    font-size: 23px;
+    margin-left: 8px;
 }
 .product-list h2{
     color:black;
@@ -88,3 +88,13 @@ background: linear-gradient(27deg, rgba(3,2,0,1) 0%, rgba(193,129,25,1) 60%); */
 .product-list button:hover {
     background-color: #0056b3;
   }
+
+.product-info .copybutton{
+    background-color: #e5e5e5;
+    border-color: none;
+    outline: none;
+}
+.product-info button:hover{
+    background-color: lightgrey;
+    border: none;
+}

@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-      font-family: Arial, sans-serif;
+    
 /*background: rgb(3,2,0);
 background: linear-gradient(27deg, rgba(3,2,0,1) 0%, rgba(193,129,25,1) 60%);       */
     margin: 0;
@@ -9,33 +9,49 @@ background: linear-gradient(27deg, rgba(3,2,0,1) 0%, rgba(193,129,25,1) 60%);   
 
 }
  .pro{
+  
     background: rgb(3,2,0);
     background: linear-gradient(27deg, rgba(3,2,0,1) 0%, rgba(193,129,25,1) 60%);
+    /* background-image: url('../assets/background.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    padding: 20px;     */
+    /* color: black; */
 } 
 .pro i{
-color: black;
-font-size: 20px;
+color:rgba(245, 245, 245, 0.808);
+font-size: 13px;
+margin-left: 650px;
+margin-top: 25px;
+margin-bottom: 20px;
 }
 .product-detail {
-    background-color: white;
+    text-align: center;
+    background-color:#fafafa;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;    
+    max-width: 55%;
+    border-radius: 10px;
+    margin-left: 300px;
+    padding: 20px;
+    /* background-color: white;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;    
     padding: 20px;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto; */
+    /* opacity: 90%; */
 }
 
 .product-detail h2 {
     font-size: 2em;
-
     color:gray;
-    margin-bottom: 10px;
     padding-left: 20px;
 }
 
 .product-detail img{
+    width: auto;
+    height: auto;
     margin: 10px 10px;
-    max-width: 100%;
     border-radius: 8px;
     margin-bottom: 20px;
     /* margin-left: 80px; */
@@ -45,27 +61,36 @@ font-size: 20px;
     padding-top: 5px;
     color: #555;
     line-height: 1.6;
-    font-size: 16px;
-   margin: 4px;
+    font-size: 17px;
+    margin: 4px;
 }
-
+/* .product-detail .price{
+margin-right: 90px;
+} */
 .product-detail strong {
-    font-weight: bold;
+    margin-right: 2px;
+    font-weight:500;
     color: black;
+    font-size: 18px;
+    padding-right: 4px;
 }
 .product-detail .proh{
     color:rgb(100, 99, 99);
 /* text-align: center; */
 font-weight: 300;
+padding-top: 15px;
+padding-bottom: 3px;
+padding-left: 30px;
 }
 /* Reviews Section */
 .reviews {
+    margin-left: 200px;
     margin-top: 10px;
-    width: 400px;
+    width: 350px;
 }
 
 .review {
-    border: 1px solid #ddd;
+    border: 1px solid rgba(0, 0, 0, 0.295);
     border-radius: 5px;
     padding: 8px;
     margin-bottom: 10px;
@@ -75,11 +100,12 @@ font-weight: 300;
 .review p {
     margin: 0;
     color: #444;
+    font-size: 15px;
 }
 
 /* Form Styles */
 form {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .txt{
@@ -91,35 +117,42 @@ form {
     resize: none;
     font-size: 16px;
     margin-bottom: 10px;
+    margin-left: 110px;
+    margin-right: 13px;
 }
 
 textarea.txt:focus {
-    border-color: #007bff;
+    border-color: #066ad6;
     outline: none;
 }
 
 .txtbtn {
     height:35px;
-    width: 30%;
+    width: 13%;
     background: #3786da;
     border: none;
-    color: #fff; 
+    color:white; 
     font-size: 18px;
     font-weight:500; 
     letter-spacing: 1px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-left: 140px;
-    border-radius: 6px;
+    /* margin-left: 50px; */
+    /* margin-top: 10px; */
+    border-radius: 5px;
+    outline: none;
+    /* margin-bottom: 100px; */
    
 }
 .txtbtn:hover {
     background-color: #0056b3;
+    outline: none;
+    border-color: none;
 }
 
 .btnff{
 
-    width: 40%;
+    width: 30%;
     background: #3786da;
     border: none;
     color: #fff;
@@ -129,13 +162,16 @@ textarea.txt:focus {
     letter-spacing: 1px;
     cursor: pointer;
     transition: background-color 0.3s ease; 
-    margin-left: 110px;
+    margin-left: 20px;
     margin-top: 20px;
     margin-bottom: 15px;
     border-radius: 5px;
+    outline: none;
 }
 .btnff:hover {
     background-color: #0056b3;
+    outline: none;
+    border-color: none;
 }
 /* Login Prompt */
 .finaltxt {
@@ -143,4 +179,5 @@ textarea.txt:focus {
     font-size: 15px;
     /* margin-top: 10px; */
     padding-top: 10px;
+    padding-left: 40px;
 }

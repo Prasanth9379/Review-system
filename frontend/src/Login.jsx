@@ -46,6 +46,7 @@ function Login() {
 
     return (
         <div className='container-first'>
+               <Link to="/"><i className="fa-solid fa-house"></i></Link>
             <div className="container">
                 <div className="text">User Login</div>
                 <form onSubmit={onSubmit}>

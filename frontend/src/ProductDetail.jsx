@@ -67,12 +67,12 @@ const ProductDetail = () => {
     }
     return (
         <div className='pro'>
-          <Link to = '/product'><i className="fa-solid fa-arrow-left"></i></Link>
+          {/* <Link to = '/product'><i className="fa-solid fa-arrow-left">Back</i></Link> */}
         <div className="product-detail">
             <h2>{product.name}</h2>
             <img src={`/${product.imageUrl}`} alt={product.name} className="product-image" />
             <p><strong>Description: </strong> {product.description}</p>
-            <p><strong>Price: </strong> Rs.{product.price.toFixed(2)}</p>
+            <p className='price'><strong>Price: </strong> Rs.{product.price.toFixed(2)}</p>
             <button type="button" onClick={handleClick} className="btnff">Buy now</button>
             <h3 className='proh'>Reviews</h3>
 
@@ -116,6 +116,8 @@ const ProductDetail = () => {
             <div className='finaltxt'>Please login to submit a review.</div>
             )}
         </div>
+           <Link to = '/product'><i className="fa-solid fa-arrow-left"> Back</i></Link>
+
         </div>
     );
 };

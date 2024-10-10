@@ -133,60 +133,60 @@ app.post('/reviews', async (req, res) => {
 });
 
 //admin usage
-app.delete('/reviews/:id', async (req, res) => {
-    const reviewId = req.params.id;
+// app.delete('/reviews/:id', async (req, res) => {
+//     const reviewId = req.params.id;
 
-    console.log('Attempting to delete review with ID:', reviewId);
+//     console.log('Attempting to delete review with ID:', reviewId);
 
-    try {
-        const result = await mssql.query`
-            DELETE FROM Reviews 
-            WHERE id = ${reviewId}`;
+//     try {
+//         const result = await mssql.query`
+//             DELETE FROM Reviews 
+//             WHERE id = ${reviewId}`;
         
-        console.log('Delete result:', result);
+//         console.log('Delete result:', result);
 
-        if (result.rowsAffected[0] === 0) {
-            return res.status(404).send('Review not found');
-        }
+//         if (result.rowsAffected[0] === 0) {
+//             return res.status(404).send('Review not found');
+//         }
         
-        res.status(200).send('Review deleted successfully');
-    } catch (err) {
-        console.error('Error deleting review:', err.message);
-        res.status(500).send('Error deleting review: ' + err.message);
-    }
-});
+//         res.status(200).send('Review deleted successfully');
+//     } catch (err) {
+//         console.error('Error deleting review:', err.message);
+//         res.status(500).send('Error deleting review: ' + err.message);
+//     }
+// });
 
-// Update a review
-app.put('/reviews/:id', async (req, res) => {
-    const reviewId = req.params.id;
-    const { review } = req.body;
+// // Update a review
+// app.put('/reviews/:id', async (req, res) => {
+//     const reviewId = req.params.id;
+//     const { review } = req.body;
 
-    // Check if review content is provided
-    if (!review) {
-        return res.status(400).send('Review content is required');
-    }
+//     // Check if review content is provided
+//     if (!review) {
+//         return res.status(400).send('Review content is required');
+//     }
 
-    console.log('Attempting to update review with ID:', reviewId);
+//     console.log('Attempting to update review with ID:', reviewId);
 
-    try {
-        const result = await mssql.query`
-            UPDATE Reviews 
-            SET review = ${review} 
-            WHERE id = ${reviewId}`;
+//     try {
+//         const result = await mssql.query`
+//             UPDATE Reviews 
+//             SET review = ${review} 
+//             WHERE id = ${reviewId}`;
 
-        console.log('Update result:', result);
+//         console.log('Update result:', result);
 
-        // Check if any rows were affected
-        if (result.rowsAffected[0] === 0) {
-            return res.status(404).send('Review not found');
-        }
+//         // Check if any rows were affected
+//         if (result.rowsAffected[0] === 0) {
+//             return res.status(404).send('Review not found');
+//         }
 
-        res.status(200).send('Review updated successfully');
-    } catch (err) {
-        console.error('Error updating review:', err.message);
-        res.status(500).send('Error updating review: ' + err.message);
-    }
-});
+//         res.status(200).send('Review updated successfully');
+//     } catch (err) {
+//         console.error('Error updating review:', err.message);
+//         res.status(500).send('Error updating review: ' + err.message);
+//     }
+// });
 
 
 

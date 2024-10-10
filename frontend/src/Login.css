@@ -99,11 +99,13 @@ form .btn button {
   letter-spacing: 1px;
   cursor: pointer;
   transition: background-color 0.3s ease; 
+  outline: none;
 }
 
 form .btn button:hover {
   background: #417dbb; 
   outline: none;
+  border-color: none;
 }
 
 form .signup-link {
@@ -120,3 +122,9 @@ form .signup-link a:hover {
   text-decoration: underline;
 }
 
+.container-first i{
+  color:gray;
+  font-size: 20px;
+  margin-left: 8px;
+  margin-top: 10px;
+}
